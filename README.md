@@ -1,2 +1,4 @@
 # date_converter
-Dater Converter for Ancient Egypt
+AngularJS app of Date Converter for Ancient Egypt website as it is live at http://aegyptologie.online-resourcen.de/home.
+
+

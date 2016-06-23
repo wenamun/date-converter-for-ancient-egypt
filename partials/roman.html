@@ -1,0 +1,49 @@
+<h2>Roman Emperors</h2>
+<div>
+    <p>The system expects that the user knows what (s)he's doing; ahistoric entries will result in mathematically correct but otherwise rather useless dates.<br>Not specifying a day will result in calculation of both the first and last day of the given month.</p>
+</div>
+<div>
+<form ng-submit="form_roman.$valid && convert()" class="form-horizontal" role="form" name="form_roman" novalidate>
+    <div class="form-group">
+        <label class="control-label col-sm-2">reign:</label>
+        <div class="col-sm-10">
+            <select name="reign" ng-model="formRoman.romanEmperors" required ng-options='option.value as option.name for option in romanEmperorsOptions' class="form-control"></select>
+        </div>
+    </div>
+    <div class="form-group" ng-class="{ 'has-error': form_roman.year.$touched && form_roman.year.$invalid }">
+        <label class="control-label col-sm-2">year:</label>
+        <div class="col-sm-10">
+            <input name="year" type="number" min="1" max="99" required ng-model="formRoman.year" class="form-control" />
+        </div>
+        <div class="help-block" ng-messages="form_roman.year.$error" multiple ng-if="form_roman.year.$touched">
+            <p class="col-sm-offset-2 col-sm-10" ng-message="required">year is a mandatory field!</p>
+            <p class="col-sm-offset-2 col-sm-10" ng-message="number">You did not enter a valid number</p>
+            <p class="col-sm-offset-2 col-sm-10" ng-message="min, max">only numbers between 1 and 99 are valid!</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2">month:</label>
+        <div class="col-sm-10">
+            <select name="month" ng-model="formRoman.months" required ng-options='option.value as option.name for option in monthOptions' class="form-control"></select>
+        </div>
+    </div>
+    <div class="form-group" ng-class="{ 'has-error': form_roman.day.$touched && form_roman.day.$invalid }">
+        <label class="control-label col-sm-2">day:</label>
+        <div class="col-sm-10">
+            <input name="day" type="number" min="1" max="30" size="3" maxlength="2" ng-model="formRoman.day" class="form-control" ng-pattern="/\d+/" />
+        </div>
+        <div class="help-block" ng-messages="form_roman.day.$error" multiple ng-if="form_roman.day.$touched">
+            <p class="col-sm-offset-2 col-sm-10" ng-message="number">You did not enter a valid number</p>
+            <p class="col-sm-offset-2 col-sm-10" ng-message="min, max">only numbers between 1 and 30 are valid!</p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <input type="submit" ng-disabled="!form_roman.$valid" value="convert date" class="btn btn-success">
+            <input class="btn" type="reset" ng-click="clearData()" value="reset">
+        </div>
+    </div>
+</form>
+<div class="alert alert-success col-sm-offset-2 col-sm-10" role="alert" ng-show="convert.result">{{convert.result}}</div>
+</div>

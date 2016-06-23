@@ -1,0 +1,194 @@
+html, body {
+    font-family: 'Belleza', sans-serif;
+    color:#555;
+}
+pre {
+    overflow: auto;
+    word-wrap: normal;
+    white-space: pre;
+    background-color: rgba(230,230,230, .3);
+    font-size: 0.8em;
+    max-width: 60em;
+}
+h1{
+    padding-left: 15px;
+    font-family: 'Tangerine', cursive;
+    color: #eee;
+    font-size:1.7em;
+    white-space: nowrap;
+}
+h1 a:hover, h1 a:active {
+    text-decoration: none;
+    color:#333;
+}
+h1 a:link, h1 a:visited {
+    text-decoration: none;
+    color:#eee;
+}
+h2 {
+    margin-top:1em;
+    margin-left: -10px;
+}
+hr {
+    max-width:60em;
+    text-align:left; margin: 0 auto 0 0;
+    color:#333;
+    background-color:#333;
+    margin-bottom:1em;
+    margin-top:1em;
+}
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+.form-control {
+    background-color: rgba(255,255,255, .3);
+}
+.alert-success {
+    background-color: rgba(223, 240, 216, 0.5);
+}
+.row {
+    margin-top:5em;
+}
+.container-header{
+    height:8em;
+    padding:0;
+    background: url(header_background.jpg) center repeat-x;
+}
+.container-sub-header {
+    background-color:#ff0;
+    height:1em;
+    padding:0;
+}
+.container-fluid {
+    border-radius:0;
+    padding:0;
+    margin:0;
+    border-bottom: solid 1px #666;
+}
+.navbar-default{
+    padding:0;
+    margin:0;
+    margin-top:-4em;
+    border-radius:0;
+}
+.navbar{
+    border: none;
+    border-radius: 0;
+    background-color: rgba(0,0,0,0.2);
+    border-top: solid 1px #ddd;
+    border-bottom: solid 1px #ddd;
+    min-height:30px;
+}
+.table>thead>tr>th {
+    background-color: #eee;
+}
+.navbar-default .navbar-brand{
+    color:#eee;
+    height:30px;
+    font-size: 1.15em;
+}
+.navbar-default .navbar-nav>li>a{
+    color:#333;
+}
+.navbar-default .navbar-nav>li>a:hover{
+    color:#333;
+}
+.navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover{
+    color:#fff;
+}
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover{
+    background-color: rgba(0,0,0,0.2);
+}
+.navbar-collapse collapse in{
+    background-color: #f00;;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color:#eee;
+}
+.dropdown-menu{
+    background-color: rgba(255,255,255,0.85);
+}
+.alert-info {
+    background-color: rgba(247,247,247,0.5);
+    border-color: #ddd;
+    color: #666;
+}
+
+@media only screen and (min-width : 320px) {
+    h1 {
+        font-size: 2em;
+    }
+    h2 {
+        margin-top:1em;
+        margin-left: 0px;
+    }
+    .dropdown-menu {
+        padding: 2px 0;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a:focus, .navbar-default .navbar-nav .open .dropdown-menu>li>a{
+        background-color: #eee;
+    }
+    #navbar > ul > li > a {
+        background-color: rgba(255,0,0,.2);
+        background-color:#eee;
+        color:#333;
+    }
+    #navbar > ul > li > a:active {
+        color:#999;
+    }
+}
+
+@media only screen and (min-width : 768px) {
+    html, body {
+        background: url(rnpt_1_5.png) no-repeat;
+        background-size: 60%;
+        background-attachment: fixed;
+        background-position: 30% 90%;
+        height: 101%;
+    }
+    h1{
+        font-size: 4.1em;
+        margin-top: 0.5em;
+    }
+    h2 {
+        margin-top:1em;
+        margin-left: -10px;
+    }
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+    .navbar-default .navbar-brand{
+        color:#eee;
+        height:30px;
+        padding: 5px 5px;
+    }
+    .navbar-nav>li>a {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .container-header{
+        height:12em;
+    }
+    .navbar-default{
+        margin-top:-5;
+    }
+    .form-control {
+        max-width: 30em;
+    }
+    .table-responsive {
+        max-width: 20em;
+    }
+    .alert {
+        max-width: 30em;
+    }
+    .navbar-default .navbar-brand:hover {
+        color:#fff;
+    }
+    #navbar > ul > li > a{
+        background-color: rgba(0,0,0,0);
+        color:#eee;
+    }
+    #navbar > ul > li > a:hover {
+        color:#fff;
+    }
+}

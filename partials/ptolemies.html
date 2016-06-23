@@ -1,0 +1,48 @@
+<h2>Ptolemaic Kings</h2>
+<div>
+    <p>The system expects that the user knows what (s)he's doing; ahistoric entries will result in mathematically correct but otherwise rather useless dates.<br>Not specifying a day will result in calculation of both the first and last day of the given month.</p>
+</div>
+<div>
+<form ng-submit="form_ptol.$valid && convert()" class="form-horizontal" role="form" name="form_ptol" novalidate>
+    <div class="form-group">
+        <label class="control-label col-sm-2">reign:</label>
+        <div class="col-sm-10">
+            <select name="reign" ng-model="formPtolemies.ptolemies" required ng-options='option.value as option.name for option in ptolemiesOptions' class="form-control"></select>
+        </div>
+    </div>
+    <div class="form-group" ng-class="{ 'has-error': form_ptol.year.$touched && form_ptol.year.$invalid }">
+        <label class="control-label col-sm-2">year:</label>
+        <div class="col-sm-10">
+            <input name="year" type="number" min="1" max="99" required ng-model="formPtolemies.year" class="form-control"/>
+        </div>
+        <div class="help-block" ng-messages="form_ptol.year.$error" multiple ng-if="form_ptol.year.$touched">
+            <p class="col-sm-offset-2 col-sm-10" ng-message="required">year is a mandatory field!</p>
+            <p class="col-sm-offset-2 col-sm-10" ng-message="number">You did not enter a valid number</p>
+            <p class="col-sm-offset-2 col-sm-10" ng-message="min, max">only numbers between 1 and 99 are valid!</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2">month:</label>
+        <div class="col-sm-10">
+            <select name="month" ng-model="formPtolemies.months" required ng-options='option.value as option.name for option in monthOptions' class="form-control"></select>
+        </div>
+    </div>
+    <div class="form-group" ng-class="{ 'has-error': form_ptol.day.$touched && form_ptol.day.$invalid }">
+        <label class="control-label col-sm-2">day:</label>
+        <div class="col-sm-10">
+            <input name="day" type="number" min="1" max="30" ng-model="formPtolemies.day" class="form-control"/>
+        </div>
+        <div class="help-block" ng-messages="form_ptol.day.$error" multiple ng-if="form_ptol.day.$touched">
+            <p class="col-sm-offset-2 col-sm-10" ng-message="number">You did not enter a valid number</p>
+            <p class="col-sm-offset-2 col-sm-10" ng-message="min, max">only numbers between 1 and 30 are valid!</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <input type="submit" ng-disabled="!form_ptol.$valid" value="convert date" class="btn btn-success">
+            <input class="btn" type="reset" ng-click="clearData()" value="reset">
+        </div>
+    </div>
+</form>
+<div class="alert alert-success col-sm-offset-2 col-sm-10" role="alert" ng-show="convert.result">{{convert.result}}</div>
+</div>

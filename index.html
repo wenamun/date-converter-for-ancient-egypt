@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="cache-control" content="no-cache" />
+    <title>Date Converter for Ancient Egypt</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Tangerine' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Belleza' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="dc.css">
+    <base href="/">
+    <meta name="description" content="Date Converter for Ancient Egypt - A scientific tool for converting calendar dates mentioned in Greek and Demotic Papyri from Egypt into Julian dates, from the reign of Psametik to Diocletian." />
+    <meta name="keywords" content="date converter, ancient egypt, papyri, greek, demotic, arabic, coptic, calendar, chronology, antiquity" />
+    <meta name="author" content="Frank Grieshaber" />
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body ng-app="dcApp">
+    <div class="container-fluid container-header">
+      <h1><a href="home">Date Converter for Ancient Egypt</a></h1>
+    </div>
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="home">Home</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Convert... <span class="caret"></span></a>
+                        <ul class="dropdown-menu navbar-right">
+                            <li><a href="latePeriod">Late Period Pharaohs</a></li>
+                            <li><a href="ptolemies">Ptolemaic Kings</a></li>
+                            <li><a href="romanEmperors">Roman Emperors</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="rest_api">REST API Documentation</a></li>
+                    <li><a href="about">About</a></li>
+                    <li><a href="contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div ng-view></div>
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.11/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.11/angular-resource.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.11/angular-route.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.11/angular-messages.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

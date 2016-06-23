@@ -1,0 +1,220 @@
+<h2>REST API Documentation</h2>
+<p>This is the documentation for the REST-like API of the Date Converter for
+Ancient Egypt which you can use for your own applications instead of this website.
+</p>
+
+<h2>Table of Contents</h2>
+<ol>
+<li><a href="rest_api#query">Query format</a></li>
+<li><a href="rest_api#response">Response Format</a></li>
+<li><a href="rest_api#changelog">Changelog</a></li>
+</ol>
+
+
+<h3 id="query">Query Format</h3>
+<p>The generic URI pattern is as following:</p>
+
+<pre>http://online-resourcen.de/api/:period/:reign/:year/:month/:day</pre>
+
+<p>All URI path segment parameters are mandatory, except :day which is optional (see below).</p>
+
+<code>:period</code>
+<p>can have one of the fowllowing values:
+    <ul>
+        <li>latePeriod</li>
+        <li>ptolemies</li>
+        <li>romanEmperors</li>
+    </ul>
+</p>
+
+<code>:reign</code>
+<p>the numeric ID of a reign; depending on :period it can has one of the following values:</p>
+
+<p>for :period = <code>latePeriod</code> (allowed values: 1 .. 24):</p>
+<pre>
+    1 => Psametik I
+    2 => Necho
+    3 => Psametik II
+    4 => Apries
+    5 => Amasis
+    6 => Psametik III
+    7 => Cambyses
+    8 => Darius I
+    9 => Xerxes I
+    10 => Artaxerxes
+    11 => Darius II
+    12 => Artaxerxes II
+    13 => Amyrtaeos
+    14 => Nepherites I
+    15 => Achoris
+    16 => Psammuthis
+    17 => Nepherites II
+    18 => Nektanebo I
+    10 => Theos
+    20 => Nektanebo II
+    21 => Artaxerxes III
+    22 => Arses
+    23 => Darius III
+    24 => Khababash
+</pre>
+
+<p>for :period = <code>ptolemies</code> (allowed values: 1 .. 26):</p>
+<pre>
+    1 => Alexander III (the Great)
+    2 => Philip Arrhidaeus
+    3 => Alexander IV
+    4 => Ptolemy I Soter
+    5 => Ptolemy II Philadelphus
+    6 => Ptolemy III Euergetes
+    7 => Ptolemy IV Philopator
+    8 => Ptolemy V Epiphanes
+    9 => Ptolemy VI Philometor
+    10 => Ptolemy VI Philometor, Ptolemy VIII (Euergetes II) and Cleopatra II
+    11 => Ptolemy VIII (Euergetes II) alone
+    12 => Ptolemy VI Philometor and Cleopatra II restored
+    13 => Ptolemy VII Neos Philopator
+    14 => Ptolemy VIII Euergetes II restored
+    15 => Cleopatra III and Ptolemy IX Soter II (Lathyros)
+    16 => Cleopatra III and Ptolemy X Alexander I
+    17 => Ptolemy X Alexander I and Cleopatra III
+    18 => Ptolemy X Alexander I and Cleopatra Berenice
+    19 => Ptolemy IX Soter II (Lathyros) restored
+    20 => Cleopatra Berenice (afterwards with Ptolemy XI Alexander II)
+    21 => Ptolemy XII Neos Dionysos (Auletes)
+    22 => Berenice IV (at first with Cleopatra Tryphaena)
+    23 => Berenice IV and Achelaus
+    24 => Achelaus and Berenice IV
+    25 => Ptolemy XII Neos Dionysos (Auletes) restored
+    26 => Cleopatra VII Philopator
+</pre>
+<p>for :period = <code>romanEmperors</code> (allowed values: 1 .. 40):</p>
+<pre>
+    1 => Augustus
+    2 => Tiberius
+    3 => Caligula
+    4 => Claudius
+    5 => Nero
+    6 => Galba
+    7 => Otho
+    8 => Vitellius
+    9 => Vespasian
+    10 => Titus
+    11 => Domitian
+    12 => Nerva
+    13 => Trajan
+    14 => Hadrian
+    15 => Antoninus Pius
+    16 => Marc Aurel
+    17 => Commodus
+    18 => Pertinax
+    19 => Pescennius Niger
+    20 => Septimius Severus
+    21 => Caracalla
+    22 => Macrinus
+    23 => Elagabal
+    24 => Severus Alexander
+    25 => Maximinus Thrax
+    26 => Gordian
+    27 => Phillippus Arabs
+    28 => Decius
+    29 => Gallus / Volusian
+    30 => Aemilian
+    31 => Valerian
+    32 => Macrianus / Quietus
+    33 => Gallienus
+    34 => Claudius Gothicus
+    35 => Aurelian
+    36 => Tacitus
+    37 => Probus
+    38 => Carus / Carinus
+    39 => Diocletian
+</pre>
+
+<code>:year</code>
+<p>numeric value of the year of the given reign</p>
+
+<code>:month</code>
+<p>numeric index number of month (allowed values: 1 .. 13):</p>
+<pre>
+    1  => Thoth     (1. month of Achet)
+    2  => Phaophi   (2. month of Achet)
+    3  => Hathyr    (3. month of Achet)
+    4  => Choiak    (4. month of Achet)
+    5  => Tybi      (1. month of Peret)
+    6  => Mecheir   (2. month of Peret)
+    7  => Phamenoth (3. month of Peret)
+    8  => Pharmuthi (4. month of Peret)
+    9  => Pachons   (1. month of Shemu)
+    10 => Payni     (2. month of Shemu)
+    11 => Epeiph    (3. month of Shemu)
+    12 => Mesore    (4. month of Shemu)
+    13 => epagomenal days
+</pre>
+
+<code>:day</code>
+<p>numeric value for the day of the given month; this parameter is optional. Allowed
+values are in a range between 1 and 30. Not specifying :day will result in
+calculation of both the first and last day of the given month (a date range in the
+response instead of a single day response type).</p>
+
+
+<h4>Examples:</h4>
+<pre>
+http://online-resourcen.de/api/ptolemies/24/1/1/2
+http://online-resourcen.de/api/ptolemies/24/1/1
+</pre>
+
+
+
+<h3 id="response">Response Format</h3>
+<p>All responses will be in simple JSON format.</p>
+
+<p>First look out for the status key which shows either "success" or "error"
+(with a hint on what went wrong).</p>
+
+<p>Depending on your query there is as result either
+<ol>
+<li>a single day ("type" => "day") or</li>
+<li>a date range ("type" => "range"),</li>
+</ol>
+both are wrapped in a "data" attribute.</p>
+
+<h4>example for 1.:</h4>
+<pre>
+{
+  "status": "success",
+  "apiVersion": "0.1",
+  "data": {
+    "type": "day",
+    "dateJulian": "-0052-09-06",
+    "dateGregorian": "-0052-09-04",
+    "egyptianDateString": "year 1 of Cleopatra VII Philopator, Thoth, day 2"
+  }
+}
+</pre>
+
+<h4>example for 2.:</h4>
+<pre>
+{
+  "status": "success",
+  "apiVersion": "0.1",
+  "data": {
+    "type": "range",
+    "dateRangeStart": {
+      "dateJulian": "-0052-09-05",
+      "dateGregorian": "-0052-09-03",
+      "egyptianDateString": "year 1 of Cleopatra VII Philopator, Thoth, day 1"
+    },
+    "dateRangeEnd": {
+      "dateJulian": "-0052-10-04",
+      "dateGregorian": "-0052-10-02",
+      "egyptianDateString": "year 1 of Cleopatra VII Philopator, Thoth, day 30"
+    }
+  }
+}
+</pre>
+
+
+<h3 id="changelog">Changelog</h3>
+<p>version 0.1 : First version of the REST-like API (2015-09-07).</p>
+<p>&nbsp;</p>

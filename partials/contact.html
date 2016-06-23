@@ -1,0 +1,44 @@
+<h2>Contact</h2>
+<div><p>If you have any comments, questions or suggestions, feel free to write me an email (frank.grieshaber@zaw.uni-heidelberg.de) or use the contact form:</p></div>
+<div>
+    <form ng-submit="form_Message.$valid && sendMessage()" class="form-horizontal" role="form" name="form_Message" novalidate>
+        <div class="form-group">
+            <label class="control-label col-sm-2">your&nbsp;name:</label>
+            <div class="col-sm-10">
+                <input name="name" type="text" ng-model="formMessage.name" required  class="form-control"></input>
+            </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': form_Message.email.$touched && form_Message.email.$invalid }">
+            <label class="control-label col-sm-2">your&nbsp;email&nbsp;address:</label>
+            <div class="col-sm-10">
+                <input name="email" type="email" required ng-model="formMessage.email" class="form-control"/>
+            </div>
+            <div class="help-block" ng-messages="form_Message.email.$error" multiple ng-if="formMessage.email.$touched">
+                <p class="col-sm-offset-2 col-sm-10" ng-message="required">Email is a mandatory field!</p>
+                <p class="col-sm-offset-2 col-sm-10" ng-message="email">You did not enter a valid email address</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2">message:</label>
+            <div class="col-sm-10">
+                <textarea name="message" ng-model="formMessage.message" required  class="form-control"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input type="submit" ng-disabled="!form_Message.$valid" value="send message" class="btn btn-success">
+                <input class="btn" type="reset" ng-click="reset()" value="reset">
+            </div>
+        </div>
+    </form>
+    <div class="alert alert-success col-sm-offset-2 col-sm-10" role="alert" ng-show="sendMessage.result">{{sendMessage.result}}</div>
+    </div>
+    <div class="alert alert-info col-sm-offset-2 col-sm-10">
+        <p>Frank Grieshaber</p>
+        <p>Seminar für Alte Geschichte und Epigraphik<br>
+        Universität Heidelberg<br>
+        Marstallhof 4<br>
+        69117 Heidelberg<br>
+        Germany</p>
+    </div>
+</div>
