@@ -47,7 +47,7 @@ angular.module('dcApp', ['ngResource','ngRoute','ngMessages'])
             controller: 'sendMessageCtrl'
         })
         .otherwise({
-            redirectTo: '/home' 
+            redirectTo: '/home'
         });
         $locationProvider.html5Mode({
           enabled: true
@@ -155,8 +155,8 @@ angular.module('dcApp', ['ngResource','ngRoute','ngMessages'])
         { name: 'Cleopatra Berenice (afterwards with Ptolemy XI Alexander II), year 1', value: '20' },
         { name: 'Ptolemy XII Neos Dionysos (Auletes), years 1-24', value: '21' },
         { name: 'Berenice IV (at first with Cleopatra Tryphaena), years 1-2', value: '22' },
-        { name: 'Berenice IV and Achelaus, years 2-3', value: '23' },
-        { name: 'Achelaus and Berenice IV, years 1-2', value: '24' },
+        { name: 'Berenice IV and Archelaus, years 2-3', value: '23' },
+        { name: 'Archelaus and Berenice IV, years 1-2', value: '24' },
         { name: 'Ptolemy XII Neos Dionysos (Auletes) restored, years 26-30', value: '25' },
         { name: 'Cleopatra VII Philopator, years 1-22', value: '26' }
     ];
@@ -258,7 +258,7 @@ angular.module('dcApp', ['ngResource','ngRoute','ngMessages'])
         });
         var config = {
             headers : {
-                'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+                'Content-Type': 'application/x-www-form-urlencoded'
             }
         }
         $http.post('http://online-resourcen.de/m/sendMessage.php', data, config)

@@ -183,12 +183,13 @@ both are wrapped in a "data" attribute.</p>
 <pre>
 {
   "status": "success",
-  "apiVersion": "0.1",
+  "apiVersion": "0.11",
   "data": {
     "type": "day",
     "dateJulian": "-0052-09-06",
     "dateGregorian": "-0052-09-04",
-    "egyptianDateString": "year 1 of Cleopatra VII Philopator, Thoth, day 2"
+    "egyptianDateString": "year 1 of Cleopatra VII Philopator, Thoth, day 2",
+    "JDN": 1702678.5
   }
 }
 </pre>
@@ -197,18 +198,20 @@ both are wrapped in a "data" attribute.</p>
 <pre>
 {
   "status": "success",
-  "apiVersion": "0.1",
+  "apiVersion": "0.11",
   "data": {
     "type": "range",
     "dateRangeStart": {
       "dateJulian": "-0052-09-05",
       "dateGregorian": "-0052-09-03",
-      "egyptianDateString": "year 1 of Cleopatra VII Philopator, Thoth, day 1"
+      "egyptianDateString": "year 1 of Cleopatra VII Philopator, Thoth, day 1",
+      "JDN": 1702677.5
     },
     "dateRangeEnd": {
       "dateJulian": "-0052-10-04",
       "dateGregorian": "-0052-10-02",
-      "egyptianDateString": "year 1 of Cleopatra VII Philopator, Thoth, day 30"
+      "egyptianDateString": "year 1 of Cleopatra VII Philopator, Thoth, day 30",
+      "JDN": 1702706.5
     }
   }
 }
@@ -216,5 +219,6 @@ both are wrapped in a "data" attribute.</p>
 
 
 <h3 id="changelog">Changelog</h3>
-<p>version 0.1 : First version of the REST-like API (2015-09-07).</p>
+<p>version 0.11 : Added Julian Day Number to JSON Response (2017-01-01)<br/>
+version 0.1 : First version of the REST-like API (2015-09-07).</p>
 <p>&nbsp;</p>
